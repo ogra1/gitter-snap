@@ -1,4 +1,4 @@
-# gitter.io amd64 desktop client
+# gitter.io amd64 desktop client snap package
 
 This tree allows you to re-pack the current gitter.io desktop client
 as a snap package
