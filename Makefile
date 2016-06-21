@@ -1,20 +1,27 @@
 # -*- Mode:Makefile; indent-tabs-mode:t; tab-width:4 -*-
 
-all: download
+TMPDIR= ./tmp
+OPT = $(TMPDIR)/opt/Gitter/linux64
+#OUTDIR = $(DESTDIR)/../../../
+OUTDIR = ../src/
+VERSION = $(shell sed -n -e "s/-.*$$//; s/^[^=]*version[^:]*:[[:blank:]]*//p" ../src/snapcraft.yaml)
+URL = http://update.gitter.im/linux64
+
+all: clean download
 
 install:
-	mv tmp/opt/Gitter/linux64/Gitter $(DESTDIR)/../../../
-	mv tmp/opt/Gitter/linux64/icudtl.dat $(DESTDIR)/../../../
-	mv tmp/opt/Gitter/linux64/libffmpegsumo.so $(DESTDIR)/../../../
-	mv tmp/opt/Gitter/linux64/locales $(DESTDIR)/../../../
-	mv tmp/opt/Gitter/linux64/nw.pak $(DESTDIR)/../../../
-	mv tmp/opt/Gitter/linux64/logo.png $(DESTDIR)/../../../setup/gui/icon.png
+	mv $(OPT)/Gitter $(OUTDIR)
+	mv $(OPT)/icudtl.dat $(OUTDIR)
+	mv $(OPT)/libffmpegsumo.so $(OUTDIR)
+	mv $(OPT)/locales $(OUTDIR)
+	mv $(OPT)/nw.pak $(OUTDIR)
+	mv $(OPT)/logo.png $(OUTDIR)setup/gui/icon.png
 	rm -rf *.deb
-	rm -rf tmp
+	rm -rf $(TMPDIR)
 
 download:
-	/usr/bin/wget http://update.gitter.im/linux64/gitter_3.0.3_amd64.deb
-	/usr/bin/dpkg -x gitter_3.0.3_amd64.deb ./tmp
+	/usr/bin/wget $(URL)/gitter_$(VERSION)_amd64.deb
+	/usr/bin/dpkg -x gitter_$(VERSION)_amd64.deb $(TMPDIR)
 
 clean:
 	rm -f Gitter
