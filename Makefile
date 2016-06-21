@@ -9,6 +9,8 @@ URL = http://update.gitter.im/linux64
 all: clean download
 
 install:
+	mkdir -p $(OUTDIR)setup/gui
+	sed "s/^Icon=.*/Icon=$$\{SNAP\}\/meta\/gui\/icon.png/; s/^Exec=.*/Exec=gitter/g" $(OPT)/gitter.desktop >$(OUTDIR)setup/gui/gitter.desktop
 	mv $(OPT)/Gitter $(OUTDIR)
 	mv $(OPT)/icudtl.dat $(OUTDIR)
 	mv $(OPT)/libffmpegsumo.so $(OUTDIR)
@@ -28,3 +30,4 @@ clean:
 	rm -f libffmpegsumo.so
 	rm -rf locales
 	rm -f nw.pak
+	rm -rf setup
