@@ -1,17 +1,11 @@
 # gitter.io amd64 desktop client snap package
 
-This tree allows you to re-pack the current gitter.io desktop client
-as a snap package
-
-## Obtaining the linux64 binary
-
-Run the ./download.sh script, it will wget the current linux64
-binary from //http//update.gitter.im/linux64/ and extract the
-required files from it.
+This tree re-packs the current gitter.io desktop client
+debian package as a snap package
 
 ## Building the snap 
 
-Now just run "snapcraft"
+Just run "snapcraft"
 
 ## Installing
 

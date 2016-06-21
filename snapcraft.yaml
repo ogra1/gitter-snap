@@ -19,7 +19,7 @@ parts:
       - libgtk-3-0
       - libnss3
       - ttf-ubuntu-font-family
-    after: [gtkconf]
+    after: [gtkconf, download]
   gitter:
     plugin: copy
     files:
@@ -28,3 +28,7 @@ parts:
       nw.pak: nw.pak
       icudtl.dat: icudtl.dat
       libffmpegsumo.so: libffmpegsumo.so
+    after: [download]
+  download:
+    plugin: make
+    source: .
