@@ -1,8 +1,7 @@
 # -*- Mode:Makefile; indent-tabs-mode:t; tab-width:4 -*-
 
-TMPDIR= ./tmp
+TMPDIR= ./unpack
 OPT = $(TMPDIR)/opt/Gitter/linux64
-#OUTDIR = $(DESTDIR)/../../../
 OUTDIR = ../src/
 VERSION = $(shell sed -n -e "s/-.*$$//; s/^[^=]*version[^:]*:[[:blank:]]*//p" ../src/snapcraft.yaml)
 URL = http://update.gitter.im/linux64
