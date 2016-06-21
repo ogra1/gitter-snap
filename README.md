@@ -3,11 +3,12 @@
 This tree re-packs the current gitter.io desktop client
 debian package as a snap package
 
-## Building the snap 
+## Current state
 
-Just run "snapcraft"
+Limitations
+ - still requires --devmode
 
 ## Installing
 
 To install the snap just run:
-sudo snap install --devmode gitter_3.0.3-1_amd64.snap
+sudo snap install --devmode gitter_*_amd64.snap
